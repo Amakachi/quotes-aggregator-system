@@ -1,13 +1,13 @@
-package com.trade.republic.quotesystem.websockets;
+package com.trade.republic.quotesystem.app.websockets;
 
 import com.google.gson.Gson;
-import com.trade.republic.quotesystem.enums.InstrumentType;
-import com.trade.republic.quotesystem.enums.QuoteType;
-import com.trade.republic.quotesystem.models.Response;
-import com.trade.republic.quotesystem.models.entities.Instrument;
-import com.trade.republic.quotesystem.models.entities.Quote;
-import com.trade.republic.quotesystem.services.InstrumentService;
-import com.trade.republic.quotesystem.services.QuoteService;
+import com.trade.republic.quotesystem.domain.enums.InstrumentType;
+import com.trade.republic.quotesystem.domain.enums.QuoteType;
+import com.trade.republic.quotesystem.domain.models.Response;
+import com.trade.republic.quotesystem.domain.services.InstrumentService;
+import com.trade.republic.quotesystem.domain.services.QuoteService;
+import com.trade.republic.quotesystem.persistence.entities.Instrument;
+import com.trade.republic.quotesystem.persistence.entities.Quote;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,9 +20,7 @@ import javax.transaction.Transactional;
 public class WebSocketService {
 
     private final Gson gson;
-
     private final QuoteService quoteService;
-
     private final InstrumentService instrumentService;
 
     @Transactional
@@ -45,7 +43,6 @@ public class WebSocketService {
     public void compareInstrumentTypeToSaveOrDelete(String type, Instrument instrument) {
 
         switch (InstrumentType.valueOf(type.toUpperCase())) {
-
             case ADD:
                 instrumentService.saveInstrument(instrument);
                 break;
@@ -62,5 +59,4 @@ public class WebSocketService {
     private <T> T convertJsonToObject(String json, Class<T> tClass) {
         return gson.fromJson(json, tClass);
     }
-
 }

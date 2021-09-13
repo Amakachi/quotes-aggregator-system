@@ -1,7 +1,7 @@
-package com.trade.republic.quotesystem.repository;
+package com.trade.republic.quotesystem.persistence.repository;
 
-import com.trade.republic.quotesystem.models.InstrumentDto;
-import com.trade.republic.quotesystem.models.entities.Instrument;
+import com.trade.republic.quotesystem.domain.models.InstrumentDto;
+import com.trade.republic.quotesystem.persistence.entities.Instrument;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

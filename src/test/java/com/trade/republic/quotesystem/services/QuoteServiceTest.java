@@ -1,19 +1,23 @@
 package com.trade.republic.quotesystem.services;
 
 
-import com.trade.republic.quotesystem.models.QuoteData;
-import com.trade.republic.quotesystem.models.entities.Quote;
-import com.trade.republic.quotesystem.repository.QuoteJdbcRepository;
+import com.trade.republic.quotesystem.domain.models.QuoteData;
+import com.trade.republic.quotesystem.domain.services.QuoteService;
+import com.trade.republic.quotesystem.persistence.entities.Quote;
+import com.trade.republic.quotesystem.persistence.repository.QuoteJdbcRepository;
 import com.trade.republic.quotesystem.utils.Utility;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;

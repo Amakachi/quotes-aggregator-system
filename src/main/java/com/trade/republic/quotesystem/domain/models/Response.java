@@ -1,10 +1,9 @@
-package com.trade.republic.quotesystem.models;
+package com.trade.republic.quotesystem.domain.models;
 
 import com.google.gson.JsonObject;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
 
 @Getter
 @ToString

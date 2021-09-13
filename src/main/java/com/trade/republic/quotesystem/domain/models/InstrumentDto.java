@@ -1,4 +1,4 @@
-package com.trade.republic.quotesystem.models;
+package com.trade.republic.quotesystem.domain.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

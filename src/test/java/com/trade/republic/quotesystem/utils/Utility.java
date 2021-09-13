@@ -1,8 +1,8 @@
 package com.trade.republic.quotesystem.utils;
 
-import com.trade.republic.quotesystem.models.InstrumentDto;
-import com.trade.republic.quotesystem.models.entities.Instrument;
-import com.trade.republic.quotesystem.models.entities.Quote;
+import com.trade.republic.quotesystem.domain.models.InstrumentDto;
+import com.trade.republic.quotesystem.persistence.entities.Instrument;
+import com.trade.republic.quotesystem.persistence.entities.Quote;
 
 import java.util.List;
 

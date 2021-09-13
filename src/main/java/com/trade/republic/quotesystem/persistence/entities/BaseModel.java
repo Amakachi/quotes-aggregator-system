@@ -1,7 +1,8 @@
-package com.trade.republic.quotesystem.models.entities;
+package com.trade.republic.quotesystem.persistence.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Calendar;

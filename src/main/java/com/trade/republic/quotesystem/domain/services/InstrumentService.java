@@ -1,14 +1,11 @@
-package com.trade.republic.quotesystem.services;
+package com.trade.republic.quotesystem.domain.services;
 
-import com.trade.republic.quotesystem.models.InstrumentDto;
-import com.trade.republic.quotesystem.models.entities.Instrument;
-import com.trade.republic.quotesystem.repository.InstrumentJdbcRepository;
+import com.trade.republic.quotesystem.domain.models.InstrumentDto;
+import com.trade.republic.quotesystem.persistence.entities.Instrument;
+import com.trade.republic.quotesystem.persistence.repository.InstrumentJdbcRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service

@@ -1,11 +1,11 @@
-package com.trade.republic.quotesystem.models.entities;
+package com.trade.republic.quotesystem.persistence.entities;
 
-import com.trade.republic.quotesystem.models.entities.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Getter
 @Setter
@@ -15,6 +15,4 @@ import javax.persistence.*;
 public class Quote extends BaseModel {
     private Double price;
     private String isin;
-
-
 }

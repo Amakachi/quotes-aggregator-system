@@ -2,7 +2,7 @@ package com.trade.republic.quotesystem.controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.trade.republic.quotesystem.models.InstrumentDto;
+import com.trade.republic.quotesystem.domain.models.InstrumentDto;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+
 import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
