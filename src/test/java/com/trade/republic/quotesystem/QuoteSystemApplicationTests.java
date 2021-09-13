@@ -9,5 +9,4 @@ class QuoteSystemApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

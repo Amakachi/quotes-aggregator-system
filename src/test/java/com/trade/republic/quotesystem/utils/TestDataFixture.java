@@ -1,28 +1,21 @@
 package com.trade.republic.quotesystem.utils;
 
-import com.trade.republic.quotesystem.domain.models.InstrumentDto;
 import com.trade.republic.quotesystem.persistence.entities.Instrument;
 import com.trade.republic.quotesystem.persistence.entities.Quote;
 
-import java.util.List;
+public class TestDataFixture {
 
-public class Utility {
-
-    public static Instrument createInstrument(){
+    public static Instrument createInstrument() {
         Instrument instrument = new Instrument();
         instrument.setDescription("test");
         instrument.setIsin("UH3165583681");
         return instrument;
     }
 
-    public static Quote createQuote(){
+    public static Quote createQuote() {
         Quote quote = new Quote();
         quote.setPrice(696.372);
         quote.setIsin("UH3165583681");
         return quote;
-    }
-
-    public static int getSizeOfInstrumentsList(List<InstrumentDto> instrumentDtoList){
-        return instrumentDtoList.size();
     }
 }

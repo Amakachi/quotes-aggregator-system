@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -28,12 +29,10 @@ public class InstrumentControllerTest {
     public void setUp()  {
         DefaultMockMvcBuilder builder = MockMvcBuilders.webAppContextSetup(this.webApplicationContext);
         this.mockMvc = builder.build();
-
     }
 
     @Test
     public void get_instruments_then_return() throws Exception {
-
         mockMvc.perform(get("/api/v1/instruments")
                 .contentType("application/json"))
                 .andExpect(status().isOk());

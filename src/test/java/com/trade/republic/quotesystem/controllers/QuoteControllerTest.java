@@ -35,8 +35,7 @@ public class QuoteControllerTest {
 
     private MockMvc mockMvc;
 
-    private List<InstrumentDto> reponseInstruments;
-
+    private List<InstrumentDto> responseInstruments;
 
     @Before
     public void contextLoads() throws Exception {
@@ -47,16 +46,17 @@ public class QuoteControllerTest {
                 .contentType("application/json"))
                 .andExpect(status().isOk()).andReturn();
 
-        reponseInstruments = gson.fromJson(result.getResponse().getContentAsString(), new TypeToken<List<InstrumentDto>>(){}.getType());
-
+        responseInstruments = gson.fromJson(result.getResponse().getContentAsString(), new TypeToken<List<InstrumentDto>>() {
+        }.getType());
     }
 
     @Test
     public void get_quotes_price_history_by_isin() throws Exception {
-        int index = reponseInstruments.size() -  2;
-        String isin = reponseInstruments.get(index).getIsin();
+        int index = responseInstruments.size() - 2;
+        String isin = responseInstruments.get(index).getIsin();
+
         mockMvc.perform(get(String.format("/api/v1/quotes/price-history/%s", isin))
-                .contentType("application/json"))
+                        .contentType("application/json"))
                 .andExpect(status().isOk());
     }
 }

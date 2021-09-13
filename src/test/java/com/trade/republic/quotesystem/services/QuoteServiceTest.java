@@ -5,17 +5,16 @@ import com.trade.republic.quotesystem.domain.models.QuoteData;
 import com.trade.republic.quotesystem.domain.services.QuoteService;
 import com.trade.republic.quotesystem.persistence.entities.Quote;
 import com.trade.republic.quotesystem.persistence.repository.QuoteJdbcRepository;
-import com.trade.republic.quotesystem.utils.Utility;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.trade.republic.quotesystem.utils.TestDataFixture.createQuote;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
@@ -27,27 +26,30 @@ public class QuoteServiceTest {
 
     @Mock
     private QuoteJdbcRepository quoteJdbcRepository;
-
     private QuoteService quoteService;
 
-
     @BeforeEach
-    public void contextLoads(){
+    public void setUp() {
         quoteService = new QuoteService(quoteJdbcRepository);
     }
 
     @Test
     public void delete_quote_isin() {
+        when(quoteJdbcRepository.deleteQuoteByIsin(anyString()))
+                .thenReturn(1L);
 
-        when(quoteJdbcRepository.deleteQuoteByIsin(Mockito.anyString())).thenReturn(1L);
-        long numberOfDeletedQuote = quoteService.deleteQuoteByIsin(Utility.createQuote().getIsin());
+        long numberOfDeletedQuote = quoteService.deleteQuoteByIsin(createQuote().getIsin());
+
         assertEquals(numberOfDeletedQuote, 1);
     }
 
     @Test
     public void save_quote_then_return() {
-        when(quoteJdbcRepository.save(any(Quote.class))).thenReturn(Utility.createQuote());
-        Quote quote = quoteService.saveQuote(Utility.createQuote());
+        when(quoteJdbcRepository.save(any(Quote.class)))
+                .thenReturn(createQuote());
+
+        Quote quote = quoteService.saveQuote(createQuote());
+
         assertNotNull(quote);
     }
 
@@ -58,9 +60,11 @@ public class QuoteServiceTest {
         quoteData.setPrice(1234.56);
         quoteDataList.add(quoteData);
 
-        when(quoteJdbcRepository.getQuotesPriceHistory(anyString())).thenReturn(quoteDataList);
+        when(quoteJdbcRepository.getQuotesPriceHistory(anyString()))
+                .thenReturn(quoteDataList);
+
         List<QuoteData> result = quoteService.getQuotesPriceHistoryByIsin("1234567827");
+
         assertNotNull(result);
     }
-
 }
