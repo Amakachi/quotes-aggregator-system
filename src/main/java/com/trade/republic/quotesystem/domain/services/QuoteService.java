@@ -31,7 +31,7 @@ public class QuoteService {
     }
 
     public Map<LocalDateTime, List<QuoteData>> groupQuotesByMinute(List<QuoteData> quoteDataList) {
-        Map<LocalDateTime, List<QuoteData>> data = new TreeMap<>();
+        Map<LocalDateTime, List<QuoteData>> data = new LinkedHashMap<>();
         List<QuoteData> newQuoteDataList = new ArrayList<>();
 
         if (isNullOrEmpty(quoteDataList)) return data;

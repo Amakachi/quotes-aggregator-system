@@ -10,15 +10,15 @@ import org.springframework.web.socket.client.WebSocketClient;
 import org.springframework.web.socket.client.WebSocketConnectionManager;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 
-@RequiredArgsConstructor
 @Configuration
+@RequiredArgsConstructor
 public class WebSocketConfig {
 
     private final PartnerServiceConfig config;
     private final WebSocketService webSocketService;
 
     @Bean
-    public WebSocketConnectionManager webSocketConnectionManager() {
+    public WebSocketConnectionManager instrumentWebSocketConnectionManager() {
         return buildSocketConnectionManager(config.getInstrumentsPath());
     }
 

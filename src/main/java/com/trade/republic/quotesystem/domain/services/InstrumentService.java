@@ -26,5 +26,17 @@ public class InstrumentService {
         return instrumentJdbcRepository.getAllInstruments(pageSize, pageNumber);
     }
 
+    public List<Instrument> getInstrumentsWithFirstPriceAndLastPriceForLast5Mins(){
+       return instrumentJdbcRepository.getInstrumentsWithFirstPriceAndLastPriceForLast5Mins();
+    }
+
+    public Instrument findByIsin(String isin){
+        return instrumentJdbcRepository.findByIsin(isin);
+    }
+
+    public int updateLowPecentagePriceChange(Double priceChange, String isin){
+        return instrumentJdbcRepository.updateInstrumentByIsin(priceChange, isin);
+    }
+
 
 }
